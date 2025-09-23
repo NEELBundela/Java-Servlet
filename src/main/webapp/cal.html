@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        #result {
+            background-color: #e9ecef;
+            color: #495057;
+        }
+
+        .buttons {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        /* New CSS for the calculate button */
+        .calculate-btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 12px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            transition: background-color 0.3s ease;
+        }
+
+        .calculate-btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Styling the operation buttons as a group */
+        .op-button {
+            padding: 12px;
+            font-size: 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .op-button[value="add"] { background-color: #4CAF50; color: white; }
+        .op-button[value="sub"] { background-color: #f44336; color: white; }
+        .op-button[value="mul"] { background-color: #2196F3; color: white; }
+        .op-button[value="div"] { background-color: #ff9800; color: white; }
+
+        .op-button:hover {
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+<form action="cal-servlet" method="post">
+    <h2>Simple Calculator</h2>
+    <input type="text" name="txt1" id="1" placeholder="Enter first number"/>
+    <input type="text" name="txt2" id="2" placeholder="Enter second number"/>
+
+    <div class="buttons">
+        <button type="submit" class="op-button" name="op" value="add" id="num1"> + </button>
+        <button type="submit" class="op-button" name="op" value="sub" id="num2"> - </button>
+        <button type="submit" class="op-button" name="op" value="mul" id="num3"> * </button>
+        <button type="submit" class="op-button" name="op" value="div" id="num4"> / </button>
+    </div>
+
+
+</form>
+</body>
+</html>
