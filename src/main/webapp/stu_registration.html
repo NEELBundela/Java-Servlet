@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Student Registration</title>
+  <style>
+    /* 1. Global Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f7f6; /* Light gray background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    /* 2. Form Container (The Card) */
+    form {
+      background-color: #ffffff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+      width: 100%;
+      max-width: 400px; /* Max width for better readability */
+      box-sizing: border-box;
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 30px;
+      border-bottom: 2px solid #007bff; /* Accent color underline */
+      padding-bottom: 10px;
+    }
+
+    /* 3. Input and Label Styling */
+    label {
+      display: block; /* Makes label take up full width */
+      font-weight: bold;
+      margin-bottom: 8px;
+      color: #555;
+      text-align: left;
+    }
+
+    input[type="number"],
+    input[type="text"] {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box; /* Padding doesn't increase total width */
+      transition: border-color 0.3s;
+    }
+
+    input[type="number"]:focus,
+    input[type="text"]:focus {
+      border-color: #007bff; /* Blue border on focus */
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+    }
+
+    /* 4. Submit Button Styling */
+    input[type="submit"] {
+      width: 100%;
+      background-color: #28a745; /* Green button */
+      color: white;
+      padding: 15px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      margin-top: 10px;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #1e7e34; /* Darker green on hover */
+    }
+  </style>
+</head>
+<body>
+<form action="StudentRegisterServlet" method="post">
+  <h2>Student Registration Form</h2>
+
+  <label for="stu_id">Student ID:</label>
+  <input type="number" name="stu_id" id="stu_id" required>
+
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name" required>
+
+  <label for="courses">Courses:</label>
+  <input type="text" name="courses" id="courses" placeholder="e.g., Math, Science, History" required>
+
+  <input type="submit" value="Register Student">
+</form>
+</body>
+</html>
