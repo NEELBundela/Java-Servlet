@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Simple Calculator</title>
+    <title>Phone Style Calculator</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,88 +13,70 @@
             background-color: #f4f4f9;
             margin: 0;
         }
-
         form {
             background-color: #fff;
-            padding: 20px 40px;
+            padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             text-align: center;
         }
-
-        input[type="text"] {
-            width: calc(100% - 22px);
-            padding: 10px;
-            margin: 10px 0;
+        #display {
+            /* Width 100% of the form, padding included in the width calculation */
+            width: 100%;
+            padding: 15px;
+            font-size: 22px;
+            text-align: right;
+            margin-bottom: 10px;
             border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 8px;
+            box-sizing: border-box; /* Ensures padding doesn't push the element outside its container */
         }
-
-        #result {
-            background-color: #e9ecef;
-            color: #495057;
-        }
-
         .buttons {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(4, 70px);
             gap: 10px;
-            margin-top: 15px;
         }
-
-        /* New CSS for the calculate button */
-        .calculate-btn {
-            background-color: #007BFF;
-            color: white;
-            padding: 12px;
+        button {
+            padding: 15px;
             font-size: 18px;
             border: none;
-            border-radius: 5px;
+            border-radius: 8px;
             cursor: pointer;
-            width: 100%;
-            margin-top: 15px;
-            transition: background-color 0.3s ease;
         }
-
-        .calculate-btn:hover {
-            opacity: 0.9;
-        }
-
-        /* Styling the operation buttons as a group */
-        .op-button {
-            padding: 12px;
-            font-size: 18px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .op-button[value="add"] { background-color: #4CAF50; color: white; }
-        .op-button[value="sub"] { background-color: #f44336; color: white; }
-        .op-button[value="mul"] { background-color: #2196F3; color: white; }
-        .op-button[value="div"] { background-color: #ff9800; color: white; }
-
-        .op-button:hover {
-            opacity: 0.9;
-        }
+        .op { background-color: #007BFF; color: white; }
+        /* The equals and clear buttons span 2 columns */
+        .eq { background-color: #28a745; color: white; grid-column: span 2; }
+        .clr { background-color: #dc3545; color: white; grid-column: span 2; }
     </style>
 </head>
 <body>
-<form action="cal-servlet" method="post">
-    <h2>Simple Calculator</h2>
-    <input type="text" name="txt1" id="1" placeholder="Enter first number"/>
-    <input type="text" name="txt2" id="2" placeholder="Enter second number"/>
+<form action="phone-calculator" method="post">
+    <input type="text" id="display" name="expression" readonly
+           value="">
 
     <div class="buttons">
-        <button type="submit" class="op-button" name="op" value="add" id="num1"> + </button>
-        <button type="submit" class="op-button" name="op" value="sub" id="num2"> - </button>
-        <button type="submit" class="op-button" name="op" value="mul" id="num3"> * </button>
-        <button type="submit" class="op-button" name="op" value="div" id="num4"> / </button>
+        <button type="submit" name="btn" value="7">7</button>
+        <button type="submit" name="btn" value="8">8</button>
+        <button type="submit" name="btn" value="9">9</button>
+        <button type="submit" class="op" name="btn" value="+">+</button>
+
+        <button type="submit" name="btn" value="4">4</button>
+        <button type="submit" name="btn" value="5">5</button>
+        <button type="submit" name="btn" value="6">6</button>
+        <button type="submit" class="op" name="btn" value="-">-</button>
+
+        <button type="submit" name="btn" value="1">1</button>
+        <button type="submit" name="btn" value="2">2</button>
+        <button type="submit" name="btn" value="3">3</button>
+        <button type="submit" class="op" name="btn" value="*">*</button>
+
+        <button type="submit" name="btn" value="0">0</button>
+        <button type="submit" name="btn" value=".">.</button>
+        <button type="submit" class="op" name="btn" value="/">/</button>
+        <button type="submit" class="eq" name="btn" value="=">=</button>
+
+        <button type="submit" class="clr" name="btn" value="C">C</button>
     </div>
-
-
 </form>
 </body>
 </html>
